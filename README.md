@@ -4,8 +4,7 @@ Sample project made using Modular Monolith architecture
 
 To run change connection string in appsettings.json and **possibly BaseAddress in WebUI Program.cs**
 
-The migrations are applied automatically, but here is the actual script
-### Migration script
+### Migration script (the migrations are applied automatically, but here is the actual script)
      IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
      BEGIN
          CREATE TABLE [__EFMigrationsHistory] (
