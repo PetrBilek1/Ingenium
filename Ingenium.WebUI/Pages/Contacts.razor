@@ -1,0 +1,60 @@
+﻿@page "/"
+@inherits ContactsBase
+
+@if(Contacts == null)
+{
+    <h3>Loading contacts...</h3>
+}
+else
+{
+    <h3 class="mb-5">Contacts</h3>
+
+    <div class="row">
+        <div class="col-7">
+            @if (Contacts.Count > 0)
+            {
+                const int itemsPerRow = 2;
+
+                for (int i = 0; i < Contacts.Count; i++)
+                {
+                    var contactRowList = Contacts.Skip(i * itemsPerRow).Take(itemsPerRow).ToList();
+
+                    <div class="row mt-3">
+                
+                        <DisplayContacts Contacts="@contactRowList"></DisplayContacts>
+
+                    </div>
+                }
+            }
+            <button class="btn btn-primary" @onclick='() => NavigationManager.NavigateTo($"Create")'>Create</button>
+        </div>
+
+        <div class="col-5">
+            <input type="text" class="form-control mb-3" placeholder="Name" @bind="NameQuery">
+            <input type="text" class="form-control" placeholder="Telephone number" @bind="TelQuery">
+            <div>
+                <label class="col-form-label">Birth from:</label>
+                <div>
+                    <input type="date" class="form-control" @bind="FromQuery">
+                </div>
+            </div>
+            <div>
+                <label class="col-form-label">Birth to:</label>
+                <div>
+                    <input type="date" class="form-control" @bind="ToQuery">
+                </div>
+            </div>
+            <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" @bind="IsActiveQuery">
+                <label class="form-check-label">
+                    Active
+                </label>
+            </div>
+            <div class="row">
+                <div class="offset-3 col-6">
+                    <button class="btn btn-primary w-100" @onclick="async () => await SearchAsync()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

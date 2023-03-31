@@ -1,0 +1,22 @@
+﻿@page "/Edit/{id}"
+
+@inherits EditContactBase
+
+<h2 class="mb-5">Edit contact</h2>
+
+@if (Contact == null)
+{
+    <h3>Loading contact...</h3>
+}
+else
+{
+    <div class="row mb-3">
+        <form class="col-lg-6">
+            <DisplayErrors Errors="@Errors"></DisplayErrors>
+            <ContactEditor Contact="@Contact"> </ContactEditor>
+
+            <button type="button" class="btn btn-primary" @onclick='async () => await SaveChangesAsync()'>Save</button>
+            <button type="button" class="btn btn-secondary" @onclick='() => NavigationManager.NavigateTo("/")'>Cancel</button>
+        </form>
+    </div>  
+}

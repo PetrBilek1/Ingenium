@@ -1,0 +1,9 @@
+﻿@inherits DisplayErrorsBase
+
+@if (Errors.Any())
+{
+    @foreach(var error in Errors)
+    {
+        <p style="color: red;">@error</p>
+    }
+}

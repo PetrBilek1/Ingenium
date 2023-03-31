@@ -1,0 +1,42 @@
+﻿@inherits ContactEditorBase
+
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" @bind="Contact.FirstName">
+    </div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" @bind="Contact.LastName">
+    </div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Number</label>
+    <div class="col-sm-10">
+        <input type="tel" class="form-control" value="@Contact.TelephoneNumber" @onchange="TelephoneNumberChanged">
+    </div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        <input type="email" class="form-control" @bind="Contact.Email">
+    </div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Birth (age @(Math.Round((DateTime.UtcNow.Date - Contact.BirthDate).TotalDays / 365.25, MidpointRounding.ToZero)))</label>
+    <div class="col-sm-10">
+        <input type="date" class="form-control" @bind="Contact.BirthDate">
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-sm-10 offset-sm-2">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" @bind="Contact.IsActive">
+            <label class="form-check-label">
+                Active
+            </label>
+        </div>
+    </div>
+</div>

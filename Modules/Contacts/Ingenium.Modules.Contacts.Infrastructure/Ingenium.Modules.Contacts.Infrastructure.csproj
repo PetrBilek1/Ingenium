@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.0.0" />
+	<PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Ingenium.BuildingBlocks.Infrastructure\Ingenium.BuildingBlocks.Infrastructure.csproj" />
+    <ProjectReference Include="..\Ingenium.Modules.Contacts.Application\Ingenium.Modules.Contacts.Application.csproj" />
+    <ProjectReference Include="..\Ingenium.Modules.Contracts.ORM\Ingenium.Modules.Contacts.ORM.csproj" />
+  </ItemGroup>
+
+</Project>
