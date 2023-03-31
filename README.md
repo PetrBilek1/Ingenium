@@ -1,6 +1,6 @@
 # Ingenium
 
-Sample project made using Modular Monolith architecture
+#### Sample project made using Modular Monolith architecture and MediatR
 
 To run change connection string in appsettings.json and **possibly BaseAddress in WebUI Program.cs**
 
